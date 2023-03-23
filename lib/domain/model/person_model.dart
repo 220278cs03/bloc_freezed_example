@@ -1,14 +1,19 @@
-// This file is "main.dart"
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:flutter/foundation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-part 'person_model.freezed.dart';
+part 'person_model.g.dart';
 
-@freezed
-class Person with _$Person {
-  const factory Person({
-    required String firstName,
-    required String lastName,
-    required int age,
-  }) = _Person;
+@JsonSerializable()
+class Person {
+  @JsonKey(name: "name")
+  final String? firstName;
+  @JsonKey(name: "lastName")
+  final String? lastName;
+  @JsonKey(name: "count")
+  final int? age;
+
+  Person({required this.firstName, required this.lastName, required this.age});
+
+  factory Person.fromJson(Map<String, dynamic> json) => _$PersonFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PersonToJson(this);
 }

@@ -20,21 +20,21 @@ mixin _$MainEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() addCount,
     required TResult Function() remove,
-    required TResult Function() newFunction,
+    required TResult Function(String name) getInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? addCount,
     TResult? Function()? remove,
-    TResult? Function()? newFunction,
+    TResult? Function(String name)? getInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? addCount,
     TResult Function()? remove,
-    TResult Function()? newFunction,
+    TResult Function(String name)? getInfo,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -42,21 +42,21 @@ mixin _$MainEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_AddCount value) addCount,
     required TResult Function(_Remove value) remove,
-    required TResult Function(_NewFunction value) newFunction,
+    required TResult Function(_GetInfo value) getInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AddCount value)? addCount,
     TResult? Function(_Remove value)? remove,
-    TResult? Function(_NewFunction value)? newFunction,
+    TResult? Function(_GetInfo value)? getInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AddCount value)? addCount,
     TResult Function(_Remove value)? remove,
-    TResult Function(_NewFunction value)? newFunction,
+    TResult Function(_GetInfo value)? getInfo,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,7 +119,7 @@ class _$_AddCount implements _AddCount {
   TResult when<TResult extends Object?>({
     required TResult Function() addCount,
     required TResult Function() remove,
-    required TResult Function() newFunction,
+    required TResult Function(String name) getInfo,
   }) {
     return addCount();
   }
@@ -129,7 +129,7 @@ class _$_AddCount implements _AddCount {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? addCount,
     TResult? Function()? remove,
-    TResult? Function()? newFunction,
+    TResult? Function(String name)? getInfo,
   }) {
     return addCount?.call();
   }
@@ -139,7 +139,7 @@ class _$_AddCount implements _AddCount {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? addCount,
     TResult Function()? remove,
-    TResult Function()? newFunction,
+    TResult Function(String name)? getInfo,
     required TResult orElse(),
   }) {
     if (addCount != null) {
@@ -153,7 +153,7 @@ class _$_AddCount implements _AddCount {
   TResult map<TResult extends Object?>({
     required TResult Function(_AddCount value) addCount,
     required TResult Function(_Remove value) remove,
-    required TResult Function(_NewFunction value) newFunction,
+    required TResult Function(_GetInfo value) getInfo,
   }) {
     return addCount(this);
   }
@@ -163,7 +163,7 @@ class _$_AddCount implements _AddCount {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AddCount value)? addCount,
     TResult? Function(_Remove value)? remove,
-    TResult? Function(_NewFunction value)? newFunction,
+    TResult? Function(_GetInfo value)? getInfo,
   }) {
     return addCount?.call(this);
   }
@@ -173,7 +173,7 @@ class _$_AddCount implements _AddCount {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AddCount value)? addCount,
     TResult Function(_Remove value)? remove,
-    TResult Function(_NewFunction value)? newFunction,
+    TResult Function(_GetInfo value)? getInfo,
     required TResult orElse(),
   }) {
     if (addCount != null) {
@@ -225,7 +225,7 @@ class _$_Remove implements _Remove {
   TResult when<TResult extends Object?>({
     required TResult Function() addCount,
     required TResult Function() remove,
-    required TResult Function() newFunction,
+    required TResult Function(String name) getInfo,
   }) {
     return remove();
   }
@@ -235,7 +235,7 @@ class _$_Remove implements _Remove {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? addCount,
     TResult? Function()? remove,
-    TResult? Function()? newFunction,
+    TResult? Function(String name)? getInfo,
   }) {
     return remove?.call();
   }
@@ -245,7 +245,7 @@ class _$_Remove implements _Remove {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? addCount,
     TResult Function()? remove,
-    TResult Function()? newFunction,
+    TResult Function(String name)? getInfo,
     required TResult orElse(),
   }) {
     if (remove != null) {
@@ -259,7 +259,7 @@ class _$_Remove implements _Remove {
   TResult map<TResult extends Object?>({
     required TResult Function(_AddCount value) addCount,
     required TResult Function(_Remove value) remove,
-    required TResult Function(_NewFunction value) newFunction,
+    required TResult Function(_GetInfo value) getInfo,
   }) {
     return remove(this);
   }
@@ -269,7 +269,7 @@ class _$_Remove implements _Remove {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AddCount value)? addCount,
     TResult? Function(_Remove value)? remove,
-    TResult? Function(_NewFunction value)? newFunction,
+    TResult? Function(_GetInfo value)? getInfo,
   }) {
     return remove?.call(this);
   }
@@ -279,7 +279,7 @@ class _$_Remove implements _Remove {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AddCount value)? addCount,
     TResult Function(_Remove value)? remove,
-    TResult Function(_NewFunction value)? newFunction,
+    TResult Function(_GetInfo value)? getInfo,
     required TResult orElse(),
   }) {
     if (remove != null) {
@@ -294,48 +294,73 @@ abstract class _Remove implements MainEvent {
 }
 
 /// @nodoc
-abstract class _$$_NewFunctionCopyWith<$Res> {
-  factory _$$_NewFunctionCopyWith(
-          _$_NewFunction value, $Res Function(_$_NewFunction) then) =
-      __$$_NewFunctionCopyWithImpl<$Res>;
+abstract class _$$_GetInfoCopyWith<$Res> {
+  factory _$$_GetInfoCopyWith(
+          _$_GetInfo value, $Res Function(_$_GetInfo) then) =
+      __$$_GetInfoCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String name});
 }
 
 /// @nodoc
-class __$$_NewFunctionCopyWithImpl<$Res>
-    extends _$MainEventCopyWithImpl<$Res, _$_NewFunction>
-    implements _$$_NewFunctionCopyWith<$Res> {
-  __$$_NewFunctionCopyWithImpl(
-      _$_NewFunction _value, $Res Function(_$_NewFunction) _then)
+class __$$_GetInfoCopyWithImpl<$Res>
+    extends _$MainEventCopyWithImpl<$Res, _$_GetInfo>
+    implements _$$_GetInfoCopyWith<$Res> {
+  __$$_GetInfoCopyWithImpl(_$_GetInfo _value, $Res Function(_$_GetInfo) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+  }) {
+    return _then(_$_GetInfo(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_NewFunction implements _NewFunction {
-  const _$_NewFunction();
+class _$_GetInfo implements _GetInfo {
+  const _$_GetInfo({required this.name});
+
+  @override
+  final String name;
 
   @override
   String toString() {
-    return 'MainEvent.newFunction()';
+    return 'MainEvent.getInfo(name: $name)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_NewFunction);
+        (other.runtimeType == runtimeType &&
+            other is _$_GetInfo &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, name);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetInfoCopyWith<_$_GetInfo> get copyWith =>
+      __$$_GetInfoCopyWithImpl<_$_GetInfo>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() addCount,
     required TResult Function() remove,
-    required TResult Function() newFunction,
+    required TResult Function(String name) getInfo,
   }) {
-    return newFunction();
+    return getInfo(name);
   }
 
   @override
@@ -343,9 +368,9 @@ class _$_NewFunction implements _NewFunction {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? addCount,
     TResult? Function()? remove,
-    TResult? Function()? newFunction,
+    TResult? Function(String name)? getInfo,
   }) {
-    return newFunction?.call();
+    return getInfo?.call(name);
   }
 
   @override
@@ -353,11 +378,11 @@ class _$_NewFunction implements _NewFunction {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? addCount,
     TResult Function()? remove,
-    TResult Function()? newFunction,
+    TResult Function(String name)? getInfo,
     required TResult orElse(),
   }) {
-    if (newFunction != null) {
-      return newFunction();
+    if (getInfo != null) {
+      return getInfo(name);
     }
     return orElse();
   }
@@ -367,9 +392,9 @@ class _$_NewFunction implements _NewFunction {
   TResult map<TResult extends Object?>({
     required TResult Function(_AddCount value) addCount,
     required TResult Function(_Remove value) remove,
-    required TResult Function(_NewFunction value) newFunction,
+    required TResult Function(_GetInfo value) getInfo,
   }) {
-    return newFunction(this);
+    return getInfo(this);
   }
 
   @override
@@ -377,9 +402,9 @@ class _$_NewFunction implements _NewFunction {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_AddCount value)? addCount,
     TResult? Function(_Remove value)? remove,
-    TResult? Function(_NewFunction value)? newFunction,
+    TResult? Function(_GetInfo value)? getInfo,
   }) {
-    return newFunction?.call(this);
+    return getInfo?.call(this);
   }
 
   @override
@@ -387,23 +412,29 @@ class _$_NewFunction implements _NewFunction {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_AddCount value)? addCount,
     TResult Function(_Remove value)? remove,
-    TResult Function(_NewFunction value)? newFunction,
+    TResult Function(_GetInfo value)? getInfo,
     required TResult orElse(),
   }) {
-    if (newFunction != null) {
-      return newFunction(this);
+    if (getInfo != null) {
+      return getInfo(this);
     }
     return orElse();
   }
 }
 
-abstract class _NewFunction implements MainEvent {
-  const factory _NewFunction() = _$_NewFunction;
+abstract class _GetInfo implements MainEvent {
+  const factory _GetInfo({required final String name}) = _$_GetInfo;
+
+  String get name;
+  @JsonKey(ignore: true)
+  _$$_GetInfoCopyWith<_$_GetInfo> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$MainState {
   int get count => throw _privateConstructorUsedError;
+  Person? get person => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MainStateCopyWith<MainState> get copyWith =>
@@ -415,7 +446,7 @@ abstract class $MainStateCopyWith<$Res> {
   factory $MainStateCopyWith(MainState value, $Res Function(MainState) then) =
       _$MainStateCopyWithImpl<$Res, MainState>;
   @useResult
-  $Res call({int count});
+  $Res call({int count, Person? person});
 }
 
 /// @nodoc
@@ -432,12 +463,17 @@ class _$MainStateCopyWithImpl<$Res, $Val extends MainState>
   @override
   $Res call({
     Object? count = null,
+    Object? person = freezed,
   }) {
     return _then(_value.copyWith(
       count: null == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int,
+      person: freezed == person
+          ? _value.person
+          : person // ignore: cast_nullable_to_non_nullable
+              as Person?,
     ) as $Val);
   }
 }
@@ -449,7 +485,7 @@ abstract class _$$_MainStateCopyWith<$Res> implements $MainStateCopyWith<$Res> {
       __$$_MainStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int count});
+  $Res call({int count, Person? person});
 }
 
 /// @nodoc
@@ -464,12 +500,17 @@ class __$$_MainStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? count = null,
+    Object? person = freezed,
   }) {
     return _then(_$_MainState(
       count: null == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int,
+      person: freezed == person
+          ? _value.person
+          : person // ignore: cast_nullable_to_non_nullable
+              as Person?,
     ));
   }
 }
@@ -477,15 +518,18 @@ class __$$_MainStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_MainState implements _MainState {
-  const _$_MainState({this.count = 0});
+  const _$_MainState({this.count = 0, this.person = null});
 
   @override
   @JsonKey()
   final int count;
+  @override
+  @JsonKey()
+  final Person? person;
 
   @override
   String toString() {
-    return 'MainState(count: $count)';
+    return 'MainState(count: $count, person: $person)';
   }
 
   @override
@@ -493,11 +537,12 @@ class _$_MainState implements _MainState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MainState &&
-            (identical(other.count, count) || other.count == count));
+            (identical(other.count, count) || other.count == count) &&
+            (identical(other.person, person) || other.person == person));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, count);
+  int get hashCode => Object.hash(runtimeType, count, person);
 
   @JsonKey(ignore: true)
   @override
@@ -507,10 +552,13 @@ class _$_MainState implements _MainState {
 }
 
 abstract class _MainState implements MainState {
-  const factory _MainState({final int count}) = _$_MainState;
+  const factory _MainState({final int count, final Person? person}) =
+      _$_MainState;
 
   @override
   int get count;
+  @override
+  Person? get person;
   @override
   @JsonKey(ignore: true)
   _$$_MainStateCopyWith<_$_MainState> get copyWith =>
